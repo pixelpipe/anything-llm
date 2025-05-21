@@ -31,7 +31,7 @@ function adminEndpoints(app) {
 
   app.get(
     "/admin/users",
-    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager, ROLES.docuser])],
     async (_request, response) => {
       try {
         const users = await User.where();
@@ -45,7 +45,7 @@ function adminEndpoints(app) {
 
   app.post(
     "/admin/users/new",
-    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager, ROLES.docuser])],
     async (request, response) => {
       try {
         const currUser = await userFromSession(request, response);
@@ -81,7 +81,7 @@ function adminEndpoints(app) {
 
   app.post(
     "/admin/user/:id",
-    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager, ROLES.docuser])],
     async (request, response) => {
       try {
         const currUser = await userFromSession(request, response);
@@ -154,7 +154,7 @@ function adminEndpoints(app) {
 
   app.get(
     "/admin/invites",
-    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager, ROLES.docuser])],  
     async (_request, response) => {
       try {
         const invites = await Invite.whereWithUsers();
@@ -168,7 +168,7 @@ function adminEndpoints(app) {
 
   app.post(
     "/admin/invite/new",
-    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager, ROLES.docuser])],
     async (request, response) => {
       try {
         const user = await userFromSession(request, response);
@@ -196,7 +196,7 @@ function adminEndpoints(app) {
 
   app.delete(
     "/admin/invite/:id",
-    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, strictMultiUserRoleValid([ROLES.admin, ROLES.manager, ROLES.docuser])],
     async (request, response) => {
       try {
         const { id } = request.params;

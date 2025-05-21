@@ -120,6 +120,10 @@ const ROLE_HINT = {
     "Can create, update and invite new users to the instance.",
     "Cannot modify LLM, vectorDB, embedding, or other connections.",
   ],
+  docuser: [
+    "Can create, update and invite new users to the instance.",
+    "Cannot modify LLM, vectorDB, embedding, or other connections.",
+  ],
   admin: [
     "Highest user level privilege.",
     "Can see and do everything across the system.",

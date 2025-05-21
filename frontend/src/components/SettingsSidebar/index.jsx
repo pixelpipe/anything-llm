@@ -275,12 +275,12 @@ const SidebarOptions = ({ user = null, t }) => (
               btnText: t("settings.workspace-chats"),
               href: paths.settings.chats(),
               flex: true,
-              roles: ["admin", "manager"],
+              roles: ["admin", "manager","docuser"],
             },
             {
               btnText: t("settings.invites"),
               href: paths.settings.invites(),
-              roles: ["admin", "manager"],
+              roles: ["admin", "manager", "docuser"],
             },
           ]}
         />
@@ -381,7 +381,7 @@ const SidebarOptions = ({ user = null, t }) => (
               btnText: t("settings.browser-extension"),
               href: paths.settings.browserExtension(),
               flex: true,
-              roles: ["admin", "manager"],
+              roles: ["admin", "manager", "docuser"],
             },
           ]}
         />

@@ -57,8 +57,8 @@ export default function AddMemberModal({ closeModal, workspace, users }) {
       user.username.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((user) => user.role !== "admin")
-    .filter((user) => user.role !== "manager");
-
+    .filter((user) => user.role !== "manager")
+    .filter((user) => user.role !== "docuser");
   return (
     <div className="relative w-full max-w-[550px] max-h-full">
       <div className="w-full max-w-2xl bg-theme-bg-secondary rounded-lg shadow border-2 border-theme-modal-border overflow-hidden">

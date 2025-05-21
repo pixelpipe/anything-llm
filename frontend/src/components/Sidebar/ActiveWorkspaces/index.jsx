@@ -89,7 +89,7 @@ export default function ActiveWorkspaces() {
                   key={workspace.id}
                   draggableId={workspace.id.toString()}
                   index={index}
-                  isDragDisabled={user?.role === "default"}
+                  isDisabled={user?.role === "default" || user?.role === "docuser"}
                 >
                   {(provided, snapshot) => (
                     <div
@@ -142,7 +142,7 @@ export default function ActiveWorkspaces() {
                                 </p>
                               </div>
                             </div>
-                            {user?.role !== "default" && (
+                            {user?.role !== "default" && user?.role !== "docuser" && (
                               <div
                                 className={`flex items-center gap-x-[2px] transition-opacity duration-200 ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
                               >

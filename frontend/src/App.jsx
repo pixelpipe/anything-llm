@@ -5,6 +5,7 @@ import { ContextWrapper } from "@/AuthContext";
 import PrivateRoute, {
   AdminRoute,
   ManagerRoute,
+  DocUserRoute,
 } from "@/components/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -239,6 +240,11 @@ export default function App() {
                     path="/settings/workspaces"
                     element={<ManagerRoute Component={AdminWorkspaces} />}
                   />
+                  <Route
+                    path="/settings/users"
+                    element={<DocUserRoute Component={AdminUsers} />}
+                  />
+  
                   {/* Onboarding Flow */}
                   <Route path="/onboarding" element={<OnboardingFlow />} />
                   <Route

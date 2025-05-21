@@ -413,7 +413,7 @@ function systemEndpoints(app) {
 
   app.get(
     "/system/local-files",
-    [validatedRequest, flexUserRoleValid([ROLES.admin, ROLES.manager])],
+    [validatedRequest, flexUserRoleValid([ROLES.admin, ROLES.manager, ROLES.docuser])],
     async (_, response) => {
       try {
         const localFiles = await viewLocalFiles();
@@ -1063,7 +1063,7 @@ function systemEndpoints(app) {
     [
       chatHistoryViewable,
       validatedRequest,
-      flexUserRoleValid([ROLES.manager, ROLES.admin]),
+      flexUserRoleValid([ROLES.manager, ROLES.docuser, ROLES.admin]),
     ],
     async (request, response) => {
       try {
